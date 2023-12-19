@@ -14,7 +14,6 @@ import {
 } from './aem.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
-
 /**
  * Builds hero block and prepends to main in a new section.
  * @param {Element} main The container element
@@ -29,6 +28,8 @@ function buildHeroBlock(main) {
     main.prepend(section);
   }
 }
+
+
 
 /**
  * load fonts.css and set a session storage flag
@@ -79,6 +80,7 @@ async function loadEager(doc) {
   const main = doc.querySelector('main');
   if (main) {
     decorateMain(main);
+
     document.body.classList.add('appear');
     await waitForLCP(LCP_BLOCKS);
   }
