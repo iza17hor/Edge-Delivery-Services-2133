@@ -1,0 +1,73 @@
+.events-container{
+    background-color: #f2f3f4;
+    color: black;
+}
+
+.event-data{
+    color:rgb(96, 96, 93)
+}
+
+.group-list {
+    background-color: #fff;
+
+    border: 0.2px solid #5d6d73;
+    border-radius: 20px;
+}
+ul, li {
+    list-style: none;
+}
+
+ul.group-list {
+    display: inline-flex;
+    min-width: 300px;
+    margin: 10px 10px;
+    padding: 20px;
+    justify-content: space-between;
+
+}
+
+.ul-list img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.group-list ul {
+    margin: 0px;
+    padding: 0;
+    display: flex;
+    justify-content: end;
+}
+
+li.group-item {
+    font-size: 10px;
+    color: gray;
+}
+
+li.ul-list{
+    margin-top:10px;
+    color:#000;
+    font-size: 15px;
+}
+
+.group-item ul {
+    display: block;
+    
+}
+
+li.group-time {
+    font-size: 16px;
+    align-items: center;
+    display: grid;
+    padding: 30px 0px 30px;
+}
+
+.group-time a {
+    font-size: 10px;
+}
+
+ul.group-matchday {
+    margin: 0;
+    padding: 0;
+    opacity: 0.3;
+    font-size: 15px;
+}

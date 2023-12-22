@@ -66,8 +66,8 @@ body {
   margin: 0;
   font-family: var(--body-font-family);
   line-height: 1.6;
-  color: var(--text-color);
-  background-color: var(--background-color);
+  color: #fff;
+  background: linear-gradient(90deg, rgba(30,22,129,1) 0%, rgba(164,0,71,1) 50%);;
   display: none;
 }
 

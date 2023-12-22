@@ -1,0 +1,98 @@
+h1#final-draw {
+    justify-content: center;
+    display: flex;
+}
+
+.section.final-draw-container {
+
+    max-width: 80%;
+    justify-content: center;
+
+    display: contents;
+}
+
+
+.final-draw-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 21px;
+}
+
+.card-group {
+
+    width: 232px;
+    border-radius: 10px;
+    
+   
+}
+
+.card-group .items{
+    box-shadow: 0 10px 16px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.19);
+    padding: 20px;
+    margin: 0;
+    color: yellow;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.card-group li {
+    text-transform: uppercase;
+    list-style: none;
+    font-size: 12px;
+    padding: 10px;
+}
+p.items {
+    background: rgb(23, 15, 82);
+}
+.card-group  ul {
+ 
+    box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        margin-top: auto;
+        border-top: none;
+        display: block;
+        padding: 20px;
+    
+}
+
+
+.final-draw.block {
+    background: #2146DF;
+    border-radius: 2%;
+    padding: 21px;
+    box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+
+.final-draw-title {
+    display: flex;
+    justify-content: center;
+    flex-flow: row-reverse;
+    align-items: center;
+}
+
+img.img-flag {
+    margin-right: 31px;
+}
+
+.part-first {
+    font-size: 50px;
+    text-align: center;
+    font-weight: 900;
+}
+
+.part-first p {
+    font-size: 86px;
+    margin: 0px;
+}
+.card-group{
+    cursor: pointer;
+    transition: .5s;
+    opacity: .7;
+
+}
+.card-group:hover {
+    opacity: 1;
+    width: 300px;
+    
+}

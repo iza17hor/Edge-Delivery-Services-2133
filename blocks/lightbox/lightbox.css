@@ -47,17 +47,12 @@ img.demo.cursor.active {
   left: 18px;
   color: #ffff;
 }
-.prev{
-  position: absolute;
-  top: 75%;
-  right: 20%;
-}
-.next {
-  position: absolute;
-  top: 75%;
-  left: 20%;
-}
+
+
 img.demo.cursor {
   max-height: 300px;
 }
 
+img.final-logo {
+  width: 42% !important;
+}
