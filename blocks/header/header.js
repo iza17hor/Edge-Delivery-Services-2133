@@ -128,6 +128,8 @@ export default async function decorate(block) {
     });
   }
 
+  
+
   // hamburger for mobile
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');
@@ -145,4 +147,29 @@ export default async function decorate(block) {
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
   block.append(navWrapper);
+
+
+  const nav_drop = document.querySelectorAll('.nav-drop');
+
+  nav_drop.forEach(ele => {
+
+  })
+ 
+  const ul = nav_drop[2].querySelector('ul')
+  const lis = ul.querySelectorAll('li')
+
+ 
+  const tab2 = [1, 2, 3, 4];
+  lis.forEach(el => { 
+    
+    const a = document.createElement('a');
+    el.append(a);
+    a.setAttribute('href', `#${el.textContent}`);
+    a.setAttribute('title', `${el.textContent}`);
+    a.innerText = el.textContent;
+    el.firstChild.nodeValue = ""
+    
+  });
+
+
 }
