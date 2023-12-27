@@ -18,6 +18,13 @@
   --overlay-background-color: #eee;
   --highlight-background-color: #ccc;
   --text-color: #000;
+  --pot-font: #ffff00;
+  --pot-background: #170f52;
+  --draw-background: #2146DF;
+  --event-data-font: #60605d;
+  --events-container-background: #f2f3f4;
+  --group-list-border: #5d6d73;
+  --modal-box-shadow: #839297;
 
   /* fonts */
   --body-font-family: roboto, roboto-fallback;
@@ -130,7 +137,7 @@ main pre {
 }
 
 a:any-link {
-  color: var(--link-color);
+  color: var( --highlight-background-color);
   text-decoration: none;
 }
 

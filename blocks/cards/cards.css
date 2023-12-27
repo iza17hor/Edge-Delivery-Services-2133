@@ -16,6 +16,10 @@
   margin: 16px;
 }
 
+.cards-card-body strong {
+  color: var(--text-color);
+}
+
 .cards .cards-card-image {
   line-height: 0;
 }
@@ -28,4 +32,5 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+  cursor: pointer;
 }

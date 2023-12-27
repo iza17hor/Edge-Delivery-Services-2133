@@ -151,15 +151,33 @@ export default async function decorate(block) {
 
   const nav_drop = document.querySelectorAll('.nav-drop');
 
-  nav_drop.forEach(ele => {
 
-  })
+  const lottery = nav_drop[0].querySelector('ul');
+  const lottery_li = lottery.querySelector('li');
+  const lottery_a = document.createElement('a');
+  lottery_li.append(lottery_a);
+  lottery_a.setAttribute('href', `#lottery`);
+  lottery_a.setAttribute('title', `lottery`);
+  lottery_a.innerText = 'lottery';
+  lottery_li.firstChild.nodeValue = "";
+
+
+  const info = nav_drop[1].querySelector('ul');
+  console.log(info)
+  const info_li = info.querySelector('li');
+  const info_a = document.createElement('a');
+  console.log(info_a)
+  info_li.append(info_a);
+  info_a.setAttribute('href', `#info`);
+  info_a.setAttribute('title', `info`);
+  info_a.innerText = 'info';
+  info_li.firstChild.nodeValue = "";
+
+
  
   const ul = nav_drop[2].querySelector('ul')
   const lis = ul.querySelectorAll('li')
 
- 
-  const tab2 = [1, 2, 3, 4];
   lis.forEach(el => { 
     
     const a = document.createElement('a');
@@ -167,9 +185,7 @@ export default async function decorate(block) {
     a.setAttribute('href', `#${el.textContent}`);
     a.setAttribute('title', `${el.textContent}`);
     a.innerText = el.textContent;
-    el.firstChild.nodeValue = ""
+    el.firstChild.nodeValue = "";
     
   });
-
-
 }

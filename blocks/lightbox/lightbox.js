@@ -24,7 +24,6 @@ export default function decorate(block) {
     img.style.width = '100%';
     mySlide.appendChild(img);
 
-
     modalContent.appendChild(mySlide);
 
     const newDemo = document.createElement('img');
@@ -97,12 +96,10 @@ export default function decorate(block) {
       demo.classList.remove('active');
     });
 
-    slides[slideIndex - 1].style.display = 'flex'; 
-    demos[slideIndex - 1].classList.add('active'); 
-
+    slides[slideIndex - 1].style.display = 'flex';
+    demos[slideIndex - 1].classList.add('active');
   }
 
-  slides[slideIndex - 1].style.display = 'flex'; 
+  slides[slideIndex - 1].style.display = 'flex';
   demos[slideIndex - 1].classList.add('active');
-
-  }
+}

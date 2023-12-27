@@ -1,68 +1,49 @@
 export default function decorate(block) {
-    const cols = [...block.children];
-    const final_draw = document.querySelector('.final-draw')
+    const finalDrawSection = document.querySelector('.final-draw');
+    const titleSection = finalDrawSection.children[0];
+    const cardsSection = finalDrawSection.children[1];
 
 
-    const div = final_draw.querySelectorAll('div')
+    titleSection.classList.add('final-draw-title');
 
-   
-    final_draw.children[0].classList.add('final-draw-title')
+    const firstText = titleSection.firstElementChild;
+    firstText.classList.add('part-first');
+    const drawText = document.createElement('p');
+    firstText.append(drawText);
+    drawText.textContent = 'draw';
 
-    const first_text = final_draw.children[0].firstElementChild
-    first_text.classList.add('part-first')
-    const span = document.createElement('p')
-    first_text.append(span)
+    const logo = document.createElement('img');
+    titleSection.append(logo);
+    logo.setAttribute('src', '/icons/logo_Euro.jpeg');
+    logo.classList.add('final-logo');
+    logo.style.width = '45%';
 
-    span.textContent = "draw"
+    cardsSection.classList.add('final-draw-cards');
+    const cardDivs = cardsSection.querySelectorAll('div');
 
-    const logo = document.createElement('img')
-    final_draw.children[0].append(logo)
-    logo.setAttribute('src', '/icons/logo_Euro.jpeg')
-    logo.classList.add('final-logo')
-    logo.style.width = "45%"
+    cardDivs.forEach((element) => {
+        element.classList.add('card-group');
+        element.firstElementChild.classList.add('items');
+    });
 
+    const cardGroups = document.querySelectorAll('.card-group');
 
-    final_draw.children[1].classList.add('final-draw-cards')
-    const divs = final_draw.children[1].querySelectorAll('div')
+    cardGroups.forEach((group) => {
+        const ulList = group.lastElementChild;
+        ulList.classList.add('list-items');
+        const listItems = ulList.querySelectorAll('li');
 
-    divs.forEach( e => {
-    e.classList.add('card-group')
-    e.firstElementChild.classList.add('items')
-    })
+        listItems.forEach((li) => {
+            const flagImg = document.createElement('img');
+            li.insertBefore(flagImg, li.firstChild);
+            flagImg.classList.add('img-flag');
+            flagImg.style.width = '20px';
 
-    const all_li = document.querySelector('.final-draw-card')
-    const card_group = document.querySelectorAll('.card-group')
-
-    card_group.forEach(element => {
-  
-        const ul_list = element.lastElementChild
-        ul_list.classList.add('list-items')
-        const list = ul_list.querySelectorAll('li')
-
-        list.forEach(li => {
-            const flag_img = document.createElement('img')
-            li.insertBefore(flag_img, li.firstChild);
-            flag_img.classList.add('img-flag')
-            flag_img.style.width="20px"
-            flag_img.setAttribute('src', `/icons/flag/${li.textContent}-svgrepo-com.svg`)
-
-            
-            if(li.textContent == 'play-off winner A' || li.textContent == 'play-off winner B' || li.textContent == 'play-off winner C'){
-               
-                flag_img.setAttribute('src', `/icons/flag/play-off-winner-A-svgrepo-com.svg`)
-               
+            if (li.textContent === 'play-off winner A' || li.textContent === 'play-off winner B' || li.textContent === 'play-off winner C') {
+                flagImg.setAttribute('src', '/icons/flag/play-off-winner-A-svgrepo-com.svg');
+            } else {
+                flagImg.setAttribute('src', `/icons/flag/${li.textContent}-svgrepo-com.svg`);
             }
-            else {
-               
-
-                li.insertBefore(flag_img, li.firstChild);
-                flag_img.classList.add('img-flag')
-                flag_img.style.width="20px"
-                flag_img.setAttribute('src', `/icons/flag/${li.textContent}-svgrepo-com.svg`)
-            }
-        })
-
-    
-    })
-
+        });
+    });
 }

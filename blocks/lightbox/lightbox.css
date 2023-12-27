@@ -33,7 +33,7 @@ img.demo.cursor.active {
 }
 
 .modal {
-  box-shadow: 10px 10px 30px rgb(131, 146, 151);
+  box-shadow: 10px 10px 30px var(--modal-box-shadow);
   position: relative;
 }
 
@@ -57,7 +57,7 @@ img.demo.cursor.active {
   position: absolute;
   top: 5px;
   left: 18px;
-  color: #ffff;
+  color: var(--background-color);
 }
 
 img.demo.cursor {
