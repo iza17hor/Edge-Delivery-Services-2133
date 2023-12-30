@@ -27,10 +27,13 @@ function buildHeroBlock(main) {
     section.append(buildBlock('hero', { elems: [picture, h1] }));
     main.prepend(section);
   }
+  const hero = document.querySelector('.hero')
+
+  const img = hero.querySelector('img');
+  console.log(img);
+  img.setAttribute('alt', 'picture bär');
+
 }
-
-
-
 /**
  * load fonts.css and set a session storage flag
  */

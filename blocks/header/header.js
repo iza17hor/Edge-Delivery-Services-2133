@@ -152,21 +152,11 @@ export default async function decorate(block) {
   const nav_drop = document.querySelectorAll('.nav-drop');
 
 
-  const lottery = nav_drop[0].querySelector('ul');
-  const lottery_li = lottery.querySelector('li');
-  const lottery_a = document.createElement('a');
-  lottery_li.append(lottery_a);
-  lottery_a.setAttribute('href', `#lottery`);
-  lottery_a.setAttribute('title', `lottery`);
-  lottery_a.innerText = 'lottery';
-  lottery_li.firstChild.nodeValue = "";
+  const info = nav_drop[0].querySelector('ul');
 
-
-  const info = nav_drop[1].querySelector('ul');
-  console.log(info)
   const info_li = info.querySelector('li');
   const info_a = document.createElement('a');
-  console.log(info_a)
+
   info_li.append(info_a);
   info_a.setAttribute('href', `#info`);
   info_a.setAttribute('title', `info`);
@@ -175,7 +165,7 @@ export default async function decorate(block) {
 
 
  
-  const ul = nav_drop[2].querySelector('ul')
+  const ul = nav_drop[1].querySelector('ul')
   const lis = ul.querySelectorAll('li')
 
   lis.forEach(el => { 

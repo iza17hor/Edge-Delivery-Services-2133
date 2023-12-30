@@ -69,6 +69,7 @@ group_item.forEach(img => {
 
 groupItem.insertBefore(itemFlag, groupItem.firstChild);
 itemFlag.setAttribute('src', `/icons/flag/${groupItem.textContent}-svgrepo-com.svg`);
+itemFlag.setAttribute('alt', `${groupItem.textContent}`);
 });
 
 

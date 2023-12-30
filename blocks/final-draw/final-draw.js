@@ -15,6 +15,7 @@ export default function decorate(block) {
     const logo = document.createElement('img');
     titleSection.append(logo);
     logo.setAttribute('src', '/icons/logo_Euro.jpeg');
+    logo.setAttribute('alt', 'logo_euro');
     logo.classList.add('final-logo');
     logo.style.width = '45%';
 
@@ -41,8 +42,10 @@ export default function decorate(block) {
 
             if (li.textContent === 'play-off winner A' || li.textContent === 'play-off winner B' || li.textContent === 'play-off winner C') {
                 flagImg.setAttribute('src', '/icons/flag/play-off-winner-A-svgrepo-com.svg');
+                flagImg.setAttribute('alt', 'invisible player');
             } else {
                 flagImg.setAttribute('src', `/icons/flag/${li.textContent}-svgrepo-com.svg`);
+                flagImg.setAttribute('alt', `${li.textContent}`);
             }
         });
     });

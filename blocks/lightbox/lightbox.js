@@ -10,7 +10,6 @@ export default function decorate(block) {
   lightbox.appendChild(modalContent);
 
   cols.forEach((col, index) => {
-
     const mySlide = document.createElement('div');
     mySlide.classList.add('mySlides');
 
@@ -21,7 +20,8 @@ export default function decorate(block) {
 
     const img = document.createElement('img');
     img.src = col.querySelector('img').src;
-    img.style.width = '100%';
+    img.style.width = '90%';
+    img.setAttribute('alt', 'stadium');
     mySlide.appendChild(img);
 
     modalContent.appendChild(mySlide);
@@ -45,7 +45,8 @@ export default function decorate(block) {
   newPrev.append(span1)
   const image1 = document.createElement('img')
   span1.append(image1)
-  image1.setAttribute('src', '/icons/arrow-redo-circle-sharp-svgrepo-com.svg')
+  image1.setAttribute('src', '/icons/arrow-redo-circle-sharp-svgrepo-com.svg');
+  image1.setAttribute('alt', 'arrow');
   newPrev.addEventListener('click', () => plusSlides(-1));
   modalContent.appendChild(newPrev);
 
@@ -56,6 +57,7 @@ export default function decorate(block) {
   const image2 = document.createElement('img')
   span2.append(image2)
   image2.setAttribute('src', '/icons/arrow-undo-circle-sharp-svgrepo-com.svg')
+  image2.setAttribute('alt', 'arrow');
   newNext.addEventListener('click', () => plusSlides(1));
   modalContent.appendChild(newNext);
 
@@ -78,9 +80,8 @@ export default function decorate(block) {
 
   const slides = document.querySelectorAll('.mySlides');
   const demos = document.querySelectorAll('.demo');
-    if(slides[0]){
-      slides[0].style.display='block'
-      
+    if(slides[0]) {
+      slides[0].style.display = 'block';
     }
 
   function showSlides(n) {

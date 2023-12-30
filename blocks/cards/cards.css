@@ -14,10 +14,8 @@
 
 .cards .cards-card-body {
   margin: 16px;
-}
-
-.cards-card-body strong {
-  color: var(--text-color);
+  font-size: 12px;
+  text-decoration: none;
 }
 
 .cards .cards-card-image {
@@ -34,3 +32,8 @@
   object-fit: cover;
   cursor: pointer;
 }
+.cards-card-body *:first-child {
+  font-size: 20px;
+  color: var(--text-color);
+}
+
