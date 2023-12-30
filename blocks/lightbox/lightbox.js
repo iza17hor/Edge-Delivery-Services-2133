@@ -20,8 +20,8 @@ export default function decorate(block) {
 
     const img = document.createElement('img');
     img.src = col.querySelector('img').src;
-    img.style.width = '90%';
-    img.setAttribute('alt', 'stadium');
+    img.style.width = '100%';
+    img.setAttribute('id', 'stadium');
     mySlide.appendChild(img);
 
     modalContent.appendChild(mySlide);
@@ -33,8 +33,7 @@ export default function decorate(block) {
     newDemo.classList.add('cursor');
     newDemo.addEventListener('click', () => 
     {
-      currentSlide(index + 1)
-
+      currentSlide(index + 1);
   });
     col.appendChild(newDemo);
   });
@@ -52,10 +51,10 @@ export default function decorate(block) {
 
   const newNext = document.createElement('p');
   newNext.classList.add('next');
-  const span2 = document.createElement('span')
-  newNext.append(span2)
-  const image2 = document.createElement('img')
-  span2.append(image2)
+  const span2 = document.createElement('span');
+  newNext.append(span2);
+  const image2 = document.createElement('img');
+  span2.append(image2);
   image2.setAttribute('src', '/icons/arrow-undo-circle-sharp-svgrepo-com.svg')
   image2.setAttribute('alt', 'arrow');
   newNext.addEventListener('click', () => plusSlides(1));
@@ -80,13 +79,13 @@ export default function decorate(block) {
 
   const slides = document.querySelectorAll('.mySlides');
   const demos = document.querySelectorAll('.demo');
-    if(slides[0]) {
-      slides[0].style.display = 'block';
-    }
+
+  if (slides[0]) {
+    slides[0].style.display = 'block';
+  }
 
   function showSlides(n) {
-
-  if (n > slides.length) slideIndex = 1;
+    if (n > slides.length) slideIndex = 1;
     if (n < 1) slideIndex = slides.length;
 
     slides.forEach((slide) => {
