@@ -504,7 +504,6 @@ async function fetchPlaceholders(prefix = 'default') {
 function updateSectionsStatus(main) {
   const sections = [...main.querySelectorAll(':scope > div.section')];
   for (let i = 0; i < sections.length; i += 1) {
-    
     const section = sections[i];
     const status = section.dataset.sectionStatus;
     if (status !== 'loaded') {
@@ -653,13 +652,11 @@ async function loadFooter(footer) {
   return loadBlock(footerBlock);
 }
 
-
 /**
  * Load LCP block and/or wait for LCP in default content.
  * @param {Array} lcpBlocks Array of blocks
  */
 async function waitForLCP(lcpBlocks) {
-
   const block = document.querySelector('.block');
   const hasLCPBlock = block && lcpBlocks.includes(block.dataset.blockName);
   if (hasLCPBlock) await loadBlock(block);

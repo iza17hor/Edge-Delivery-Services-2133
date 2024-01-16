@@ -40,7 +40,8 @@ ul.group-list {
 
 li.group-item {
     font-size: 10px;
-    color: gray;
+    color: var(--modal-box-shadow);
+
 }
 
 li.ul-list {

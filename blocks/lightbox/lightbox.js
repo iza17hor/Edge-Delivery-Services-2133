@@ -11,95 +11,99 @@ export default function decorate(block) {
 
   cols.forEach((col, index) => {
     const mySlide = document.createElement('div');
-    mySlide.classList.add('mySlides');
+    mySlide.classList.add('lightbox-slide');
 
     const numbertext = document.createElement('div');
-    numbertext.classList.add('numbertext');
+    numbertext.classList.add('lightbox-numbertext');
     numbertext.innerText = `${index + 1} / ${cols.length}`;
     mySlide.appendChild(numbertext);
 
     const img = document.createElement('img');
     img.src = col.querySelector('img').src;
     img.style.width = '100%';
+    img.classList.add('lightbox-img');
     img.setAttribute('id', 'stadium');
     mySlide.appendChild(img);
 
     modalContent.appendChild(mySlide);
 
-    const newDemo = document.createElement('img');
-    newDemo.src = col.querySelector('img').src;
-    newDemo.style.width = '100%';
-    newDemo.classList.add('demo');
-    newDemo.classList.add('cursor');
-    newDemo.addEventListener('click', () => 
-    {
+    const thumbnail = document.createElement('img');
+    thumbnail.src = col.querySelector('img').src;
+    thumbnail.style.width = '100%';
+    thumbnail.classList.add('lightbox-thumbnail');
+    thumbnail.classList.add('cursor');
+    thumbnail.addEventListener('click', () => {
+      // eslint-disable-next-line no-use-before-define
       currentSlide(index + 1);
-  });
-    col.appendChild(newDemo);
+    });
+    col.appendChild(thumbnail);
   });
 
-  const newPrev = document.createElement('p');
-  newPrev.classList.add('prev');
-  const span1 = document.createElement('span')
-  newPrev.append(span1)
-  const image1 = document.createElement('img')
-  span1.append(image1)
-  image1.setAttribute('src', '/icons/arrow-redo-circle-sharp-svgrepo-com.svg');
-  image1.setAttribute('alt', 'arrow');
-  newPrev.addEventListener('click', () => plusSlides(-1));
-  modalContent.appendChild(newPrev);
+  const prevButton = document.createElement('p');
+  prevButton.classList.add('lightbox-prev');
+  const prevIcon = document.createElement('span');
+  prevButton.append(prevIcon);
+  const prevImage = document.createElement('img');
+  prevIcon.append(prevImage);
+  prevImage.setAttribute('src', '/icons/arrow-redo-circle-sharp-svgrepo-com.svg');
+  prevImage.setAttribute('alt', 'arrow');
+  // eslint-disable-next-line no-use-before-define
+  prevButton.addEventListener('click', () => changeSlides(-1));
+  modalContent.appendChild(prevButton);
 
-  const newNext = document.createElement('p');
-  newNext.classList.add('next');
-  const span2 = document.createElement('span');
-  newNext.append(span2);
-  const image2 = document.createElement('img');
-  span2.append(image2);
-  image2.setAttribute('src', '/icons/arrow-undo-circle-sharp-svgrepo-com.svg')
-  image2.setAttribute('alt', 'arrow');
-  newNext.addEventListener('click', () => plusSlides(1));
-  modalContent.appendChild(newNext);
+  const nextButton = document.createElement('p');
+  nextButton.classList.add('lightbox-next');
+  const nextIcon = document.createElement('span');
+  nextButton.append(nextIcon);
+  const nextImage = document.createElement('img');
+  nextIcon.append(nextImage);
+  nextImage.setAttribute('src', '/icons/arrow-undo-circle-sharp-svgrepo-com.svg');
+  nextImage.setAttribute('alt', 'arrow');
+  // eslint-disable-next-line no-use-before-define
+  nextButton.addEventListener('click', () => changeSlides(1));
+  modalContent.appendChild(nextButton);
 
   const captionContainer = document.createElement('div');
-  captionContainer.classList.add('caption-container');
+  captionContainer.classList.add('lightbox-caption-container');
   const caption = document.createElement('p');
   captionContainer.appendChild(caption);
-  caption.classList.add('caption');
+  caption.classList.add('lightbox-caption');
   modalContent.appendChild(captionContainer);
 
-  let slideIndex = 1;
+  let currentIndex = 1;
 
-  function plusSlides(n) {
-    showSlides((slideIndex += n));
+  function changeSlides(n) {
+    // eslint-disable-next-line no-use-before-define
+    showSlides((currentIndex += n));
   }
 
   function currentSlide(n) {
-    showSlides((slideIndex = n));
+    // eslint-disable-next-line no-use-before-define
+    showSlides((currentIndex = n));
   }
 
-  const slides = document.querySelectorAll('.mySlides');
-  const demos = document.querySelectorAll('.demo');
+  const slides = document.querySelectorAll('.lightbox-slide');
+  const thumbnails = document.querySelectorAll('.lightbox-thumbnail');
 
   if (slides[0]) {
-    slides[0].style.display = 'block';
+    slides[0].style.display = 'flex';
   }
 
   function showSlides(n) {
-    if (n > slides.length) slideIndex = 1;
-    if (n < 1) slideIndex = slides.length;
+    if (n > slides.length) currentIndex = 1;
+    if (n < 1) currentIndex = slides.length;
 
     slides.forEach((slide) => {
       slide.style.display = 'none';
     });
 
-    demos.forEach((demo) => {
-      demo.classList.remove('active');
+    thumbnails.forEach((thumbnail) => {
+      thumbnail.classList.remove('active');
     });
 
-    slides[slideIndex - 1].style.display = 'flex';
-    demos[slideIndex - 1].classList.add('active');
+    slides[currentIndex - 1].style.display = 'flex';
+    thumbnails[currentIndex - 1].classList.add('active');
   }
 
-  slides[slideIndex - 1].style.display = 'flex';
-  demos[slideIndex - 1].classList.add('active');
+  showSlides(currentIndex);
 }
