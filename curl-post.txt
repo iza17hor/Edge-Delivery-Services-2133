@@ -1,0 +1,7 @@
+## Post something to Form ##
+curl -s -i -X POST 'https://admin.hlx.page/form/iza17hor/edge-delivery-services-2133/main/example-form.json' \
+--header 'Content-Type: application/json' \
+--data '{"data":{"firstName":"test","favoriteColor": "Red","tellUsSomething":"Green is also nice"}}'
+
+## Purge Cache of index file ##
+curl -s -i -X POST 'https://admin.hlx.page/cache/iza17hor/edge-delivery-services-2133/main/index.html'

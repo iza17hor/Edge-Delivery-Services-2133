@@ -1,4 +1,5 @@
 export default function decorate(block) {
+  const stadiums = ['Berlin (Olympiastadion)', 'Munich (Allianz Arena)', 'Dortmund (BVB Stadion)', 'Stuttgard (MHPArena)', 'Frankfurt (Deutsche Bank Park)', 'Gelsenkirchen (Veltins-Arena)'];
   const cols = [...block.children];
   const lightboxWrapper = document.querySelector('.lightbox-wrapper');
   const lightbox = document.createElement('div');
@@ -15,7 +16,7 @@ export default function decorate(block) {
 
     const numbertext = document.createElement('div');
     numbertext.classList.add('lightbox-numbertext');
-    numbertext.innerText = `${index + 1} / ${cols.length}`;
+    numbertext.innerText = `${stadiums[index]}`;
     mySlide.appendChild(numbertext);
 
     const img = document.createElement('img');

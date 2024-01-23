@@ -1,0 +1,41 @@
+.form-container {
+  background-position: center; 
+  background-image: url("https://apps.eui.eu/EUI_API/EVENTSV2/Images/Image?id=1236");
+}
+
+#firstName, #city, #peopleNum, #email {
+  border: none;
+  border-radius: 20px;
+  width: 280px;
+  padding: 0px 15px;
+  font-size: 20px;
+}
+
+.field-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 50px;
+}
+
+.form-submit-wrapper {
+  justify-content: center;
+}
+
+.form-container .button {
+  font-size: 30px;
+  width: 300px;
+  text-transform: uppercase;
+  height: 50px;
+}
+
+.form-wrapper {
+  background: var(--petrol-background);
+  padding: 54px;
+  border-radius: 5px;
+}
+
+input#firstName, input#email, select#peopleNum, select#city {
+  height: 40px;
+  cursor: pointer;
+}
