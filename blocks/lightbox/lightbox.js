@@ -1,5 +1,4 @@
 export default function decorate(block) {
-  const stadiums = ['Berlin (Olympiastadion)', 'Munich (Allianz Arena)', 'Dortmund (BVB Stadion)', 'Stuttgard (MHPArena)', 'Frankfurt (Deutsche Bank Park)', 'Gelsenkirchen (Veltins-Arena)'];
   const cols = [...block.children];
   const lightboxWrapper = document.querySelector('.lightbox-wrapper');
   const lightbox = document.createElement('div');
@@ -13,10 +12,13 @@ export default function decorate(block) {
   cols.forEach((col, index) => {
     const mySlide = document.createElement('div');
     mySlide.classList.add('lightbox-slide');
-
     const numbertext = document.createElement('div');
     numbertext.classList.add('lightbox-numbertext');
-    numbertext.innerText = `${stadiums[index]}`;
+    mySlide.appendChild(numbertext);
+
+    const stadiumName = col.children[0].innerText.trim();
+
+    numbertext.innerText = `${stadiumName}`;
     mySlide.appendChild(numbertext);
 
     const img = document.createElement('img');
@@ -75,7 +77,7 @@ export default function decorate(block) {
 
   function changeSlides(n) {
     // eslint-disable-next-line no-use-before-define
-    showSlides((currentIndex += n));
+    showSlides((currentIndex -= n));
   }
 
   function currentSlide(n) {
