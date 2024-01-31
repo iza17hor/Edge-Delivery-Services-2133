@@ -27,6 +27,13 @@ export default function decorate(block) {
     img.classList.add('lightbox-img');
     img.setAttribute('id', 'stadium');
     mySlide.appendChild(img);
+   
+
+    img.addEventListener('click', () => {
+      // eslint-disable-next-line no-use-before-define
+      handleModalView(img.src, stadiumName, index);
+
+    });
 
     modalContent.appendChild(mySlide);
 
@@ -73,7 +80,76 @@ export default function decorate(block) {
   caption.classList.add('lightbox-caption');
   modalContent.appendChild(captionContainer);
 
+  function handleModalView(imgSrc, stadium, id) {
+    console.log(id);
+    const modal = document.createElement('div');
+    modal.classList.add('modal-full-screen');
+
+    const modalFullScreenContent = document.createElement('div');
+    modalFullScreenContent.classList.add('modal-full-screen-content');
+
+    const modalDiv = document.createElement('div');
+    modalDiv.classList.add('modal-text');
+    modalFullScreenContent.appendChild(modalDiv);
+    const modalP = document.createElement('p');
+    modalDiv.appendChild(modalP);
+    modalP.textContent = `${stadium}`;
+
+    const modalIcon = document.createElement('img');
+    modalDiv.appendChild(modalIcon);
+
+    const modalImg = document.createElement('img');
+    modalImg.src = imgSrc;
+    modalImg.classList.add('modal-full-screen-img');
+
+    modalIcon.setAttribute('src', '/icons/close-bold-svgrepo-com.svg');
+    modalIcon.classList.add('modal-icon');
+    modalFullScreenContent.appendChild(modalImg);
+    modal.appendChild(modalFullScreenContent);
+    // eslint-disable-next-line no-shadow
+
+    const buttons = document.createElement('div');
+    modalFullScreenContent.appendChild(buttons);
+    buttons.classList.add('buttons-content');
+
+    const prevButtonModal = document.createElement('p');
+    buttons.appendChild(prevButtonModal);
+    prevButtonModal.classList.add('prevButton');
+    const spanPrevBtn = document.createElement('span');
+    prevButtonModal.appendChild(spanPrevBtn);
+    const imgPrevBtn = document.createElement('img');
+    imgPrevBtn.classList.add('prev-img-btn');
+    spanPrevBtn.append(imgPrevBtn);
+    imgPrevBtn.setAttribute('src', '/icons/action-paging-prev-svgrepo-com.svg');
+    prevButtonModal.addEventListener('click', () => changeImagePrev(id));
+
+    const nextButtonModal = document.createElement('p');
+    buttons.appendChild(nextButtonModal);
+    nextButtonModal.classList.add('nextButton');
+    const spanNextBtn = document.createElement('span');
+    nextButtonModal.append(spanNextBtn);
+    const imgNextBtn = document.createElement('img');
+    imgNextBtn.classList.add('next-img-btn');
+    spanNextBtn.append(imgNextBtn);
+    imgNextBtn.setAttribute('src', '/icons/action-paging-next-svgrepo-com.svg');
+    nextButtonModal.addEventListener('click', () => { changeImageNext(id); });
+
+    document.body.appendChild(modal);
+
+    modalIcon.addEventListener('click', () => {
+      modal.remove();
+    });
+  }
+
   let currentIndex = 1;
+
+  function changeImageNext(index) {
+    console.log(currentIndex -= index);
+  }
+
+  function changeImagePrev(index) {
+    console.log(currentIndex = index);
+  }
 
   function changeSlides(n) {
     // eslint-disable-next-line no-use-before-define
@@ -103,6 +179,7 @@ export default function decorate(block) {
     thumbnails.forEach((thumbnail) => {
       thumbnail.classList.remove('active');
     });
+    slides[currentIndex - 1].classList.add('active-slide');
 
     slides[currentIndex - 1].style.display = 'flex';
     thumbnails[currentIndex - 1].classList.add('active');
