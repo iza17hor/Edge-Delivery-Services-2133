@@ -78,7 +78,6 @@ export default function decorate(block) {
   caption.classList.add('lightbox-caption');
   modalContent.appendChild(captionContainer);
 
-
   /// metoda wyswietlenia bierzacego obrazu
   function handleModalView(srcImg, stadium, index) {
     const modal = document.createElement('div');
@@ -86,7 +85,6 @@ export default function decorate(block) {
 
     const modalFullScreenContent = document.createElement('div');
     modalFullScreenContent.classList.add('modal-full-screen-content');
-
 
     const modalDiv = document.createElement('div');
     modalDiv.classList.add('modal-text');
@@ -97,9 +95,6 @@ export default function decorate(block) {
     modalIcon.classList.add('modal-icon');
     modalDiv.appendChild(modalIcon);
 
-    const text = document.createElement('p');
-    text.innerText = `${stadium}`;
-    modalDiv.appendChild(text);
 
 
     const modalImg = document.createElement('img');
@@ -187,7 +182,6 @@ export default function decorate(block) {
     thumbnails[currentIndex - 1].classList.add('active');
   }
 
-
   function changeImageNext(step) {
     currentIndex += step;
     if (currentIndex < 0) {
@@ -206,9 +200,6 @@ export default function decorate(block) {
     });
 
     const firstImage = allImages[0];
-    console.log(firstImage);
-
-    
   }
   showSlides(currentIndex);
 }
